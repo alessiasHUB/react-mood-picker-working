@@ -3,43 +3,43 @@ import { useState } from "react";
 /* eslint no-console: "error" */
 
 function MoodPickerDemo(): JSX.Element {
-  const [moodValueFromCurrentRender, queueRerenderWithNewMoodValue] =
+  const [state, setState] =
     useState("confused");
 
   // const handleMoodChangeToHappy = () => {
-  //   queueRerenderWithNewMoodValue("happy");
+  //   setState("happy");
   // };
 
   const handleMoodChangeToConfused = () => {
-    queueRerenderWithNewMoodValue("confused");
+    setState("confused");
     // console.log(
     //   "🤔 queued a rerender with mood as",
     //   nextMood,
     //   "but in this render it is still",
-    //   moodValueFromCurrentRender
+    //   state
     // );
   };
 
   const handleMoodChangeToSad = () => {
-    queueRerenderWithNewMoodValue("sad");
+    setState("sad");
     // console.log(
     //   "😢 queued a rerender with mood as",
     //   nextMood,
     //   "but in this render it is still",
-    //   moodValueFromCurrentRender
+    //   state
     // );
   };
 
   const handleMoodChangeToLaughing = () => {
-    queueRerenderWithNewMoodValue("laughing")
+    setState("laughing")
   };
   
   const handleMoodChangeToInLove = () => {
-    queueRerenderWithNewMoodValue("in love")
+    setState("in love")
   };
 
   const handleMoodChangeToTired = () => {
-    queueRerenderWithNewMoodValue("tired")
+    setState("tired")
   };
   
   // console.log(
@@ -50,8 +50,8 @@ function MoodPickerDemo(): JSX.Element {
   return (
     <>
       <h1>Mood Picker Demo</h1>
-      <p>Chosen mood: {moodValueFromCurrentRender.toUpperCase()}</p>
-      <button onClick={() => queueRerenderWithNewMoodValue("happy")}>😀</button>
+      <p>Chosen mood: {state.toUpperCase()}</p>
+      <button onClick={() => setState("happy")}>😀</button>
       <button onClick={handleMoodChangeToConfused}>🤔</button>
       <button onClick={handleMoodChangeToSad}>😢</button>
       <button onClick={handleMoodChangeToLaughing}>😂</button>
